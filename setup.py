@@ -1,6 +1,5 @@
 """Setup module installation."""
 
-import os
 import re
 
 from setuptools import find_packages, setup
@@ -9,7 +8,7 @@ if __name__ == "__main__":
     MODULE_NAME = 'simplebot_echo'
     DESC = 'An example plugin for SimpleBot, a Delta Chat(http://delta.chat/) bot'
 
-    with open(os.path.join(MODULE_NAME + '.py')) as fh:
+    with open(MODULE_NAME + '.py') as fh:
         version = re.search(
             r'__version__ = \'(.*?)\'', fh.read(), re.M).group(1)
 
