@@ -18,6 +18,19 @@ if __name__ == "__main__":
     with open("LICENSE") as fh:
         long_description += fh.read()
 
+    with open("requirements.txt", encoding="utf-8") as req:
+        install_requires = [
+            line.replace("==", ">=")
+            for line in req.read().split("\n")
+            if line and not line.startswith(("#", "-"))
+        ]
+    with open("requirements-test.txt", encoding="utf-8") as req:
+        test_deps = [
+            line.replace("==", ">=")
+            for line in req.read().split("\n")
+            if line and not line.startswith(("#", "-"))
+        ]
+
     setup(
         name=MODULE_NAME,
         version=version,
@@ -37,9 +50,8 @@ if __name__ == "__main__":
         zip_safe=False,
         include_package_data=True,
         py_modules=[MODULE_NAME],
-        install_requires=[
-            "simplebot",
-        ],
+        install_requires=install_requires,
+        extras_require={"test": test_deps},
         entry_points={
             "simplebot.plugins": "{0} = {0}".format(MODULE_NAME),
         },
