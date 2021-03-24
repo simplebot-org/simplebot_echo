@@ -1,13 +1,11 @@
-.pytest_cache
-*.pyc
 __pycache__
 .cache
-*.swp
-.tox
+.mypy_cache
+.pytest_cache
 build
 dist
 *.egg-info
+
 *~
 .#*
 *#
-.mypy_cache
