@@ -35,6 +35,9 @@ if __name__ == "__main__":
         description=DESC,
         long_description=long_description,
         long_description_content_type="text/x-rst",
+        author="The SimpleBot Contributors",
+        author_email="adbenitez@nauta.cu",
+        url="https://github.com/simplebot-org/simplebot_echo",
         keywords="simplebot plugin deltachat",
         license="MPL",
         classifiers=[
