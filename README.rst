@@ -2,6 +2,7 @@
 =======================
 
 .. image:: https://img.shields.io/github/v/release/simplebot-org/simplebot_echo
+   :target: https://pypi.org/project/simplebot_echo
 
 .. image:: https://img.shields.io/pypi/pyversions/simplebot_echo.svg
    :target: https://pypi.org/project/simplebot_echo
