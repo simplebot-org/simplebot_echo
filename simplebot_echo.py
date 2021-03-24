@@ -12,3 +12,12 @@ def echo(payload: str, replies: Replies) -> None:
     the command '/echo'. Example: `/echo hello world`
     """
     replies.add(text=payload or "echo")
+
+
+class TestEcho:
+    def test_echo(self, mocker):
+        msg = mocker.get_one_reply("/echo")
+        assert msg.text == "echo"
+
+        msg = mocker.get_one_reply("/echo hello world")
+        assert msg.text == "hello world"
