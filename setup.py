@@ -14,7 +14,7 @@ if __name__ == "__main__":
     with open("README.rst") as fh:
         long_description = fh.read()
     with open("CHANGELOG.rst") as fh:
-        long_description += '\n' + fh.read()
+        long_description += "\n" + fh.read()
 
     with open("requirements.txt", encoding="utf-8") as req:
         install_requires = [
