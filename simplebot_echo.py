@@ -14,7 +14,7 @@ def echo(payload: str, replies: Replies) -> None:
     replies.add(text=payload or "echo")
 
 
-class TestEcho:
+class TestPlugin:
     def test_echo(self, mocker):
         msg = mocker.get_one_reply("/echo")
         assert msg.text == "echo"
