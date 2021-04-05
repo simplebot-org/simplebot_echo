@@ -7,6 +7,7 @@ from setuptools import setup
 if __name__ == "__main__":
     MODULE_NAME = "simplebot_echo"
     DESC = "An example plugin for SimpleBot, a Delta Chat(http://delta.chat/) bot"
+    URL = "https://github.com/simplebot-org/simplebot_echo"
 
     with open(MODULE_NAME + ".py") as fh:
         version = re.search(r"__version__ = \"(.*?)\"", fh.read(), re.M).group(1)
@@ -37,7 +38,7 @@ if __name__ == "__main__":
         long_description_content_type="text/x-rst",
         author="The SimpleBot Contributors",
         author_email="adbenitez@nauta.cu",
-        url="https://github.com/simplebot-org/simplebot_echo",
+        url=URL,
         keywords="simplebot plugin deltachat",
         license="MPL",
         classifiers=[
