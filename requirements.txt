@@ -1,1 +1,1 @@
-simplebot==1.1.0
+simplebot==1.1.1
