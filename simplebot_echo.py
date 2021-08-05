@@ -1,3 +1,5 @@
+"""Plugin's commands definition."""
+
 import simplebot
 from pkg_resources import DistributionNotFound, get_distribution
 from simplebot.bot import Replies
@@ -20,6 +22,8 @@ def echo(payload: str, replies: Replies) -> None:
 
 
 class TestPlugin:
+    """Offline tests"""
+
     def test_echo(self, mocker):
         msg = mocker.get_one_reply("/echo")
         assert msg.text == "echo"
