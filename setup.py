@@ -22,12 +22,9 @@ def load_requirements(path: str) -> list:
 if __name__ == "__main__":
     MODULE_NAME = "simplebot_echo"
     DESC = "An example plugin for SimpleBot, a Delta Chat(http://delta.chat/) bot"
-    URL = "https://github.com/simplebot-org/simplebot_echo"
 
     with open("README.rst") as fh:
         long_description = fh.read()
-    with open("CHANGELOG.rst") as fh:
-        long_description += "\n" + fh.read()
 
     setup(
         name=MODULE_NAME,
@@ -43,7 +40,7 @@ if __name__ == "__main__":
         long_description_content_type="text/x-rst",
         author="The SimpleBot Contributors",
         author_email="adbenitez@nauta.cu",
-        url=URL,
+        url=f"https://github.com/simplebot-org/{MODULE_NAME}",
         keywords="simplebot plugin deltachat",
         license="MPL",
         classifiers=[
