@@ -1,6 +1,7 @@
 """Plugin's commands definition."""
 
 import simplebot
+from deltachat import Message
 from pkg_resources import DistributionNotFound, get_distribution
 from simplebot.bot import Replies
 
@@ -11,12 +12,19 @@ except DistributionNotFound:
     __version__ = "0.0.0.dev0-unknown"
 
 
+@simplebot.filter
+def echo_filter(message: Message, replies: Replies) -> None:
+    """I will echo back any text message you send me in private."""
+    if not message.chat.is_group() and message.text:
+        replies.add(text=message.text)
+
+
 @simplebot.command
 def echo(payload: str, replies: Replies) -> None:
-    """Echoes back received text.
+    """Echo back received text.
 
-    To use it you can simply send a message starting with
-    the command '/echo'. Example: `/echo hello world`
+    To use it send a message like:
+    /echo hello world
     """
     replies.add(text=payload or "echo")
 
@@ -30,3 +38,10 @@ class TestPlugin:
 
         msg = mocker.get_one_reply("/echo hello world")
         assert msg.text == "hello world"
+
+    def test_filter(self, mocker):
+        msg = mocker.get_one_reply("hello world")
+        assert msg.text == "hello world"
+
+        msgs = mocker.get_replies("hello world", group="TestGroup")
+        assert not msgs
