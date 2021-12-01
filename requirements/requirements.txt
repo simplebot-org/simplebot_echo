@@ -1,1 +1,1 @@
-simplebot==2.3.0
+simplebot==2.4.0
