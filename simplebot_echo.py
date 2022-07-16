@@ -15,7 +15,7 @@ except DistributionNotFound:
 @simplebot.filter
 def echo_filter(message: Message, replies: Replies) -> None:
     """I will echo back any text message you send me in private."""
-    if not message.chat.is_group() and message.text:
+    if not message.chat.is_multiuser() and message.text:
         replies.add(text=message.text)
 
 
